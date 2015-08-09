@@ -1,6 +1,6 @@
 # This code reads the data and generate Plot 1 "Global Active Power"
 
-## Reading data from 1/2/2007 00:00:00 and 3/2/2007 00:00:00
+## Reading data from 1/2/2007 00:00:00 to 3/2/2007 00:00:00
 data<-read.table("household_power_consumption.txt",
                  header = FALSE,
                  sep = ";",
@@ -16,7 +16,7 @@ data<-read.table("household_power_consumption.txt",
                  skip = grep("^31/1/2007;23:59:00", ##skips lines including this
                            readLines("household_power_consumption.txt")),
                  nrows = 2881)  ## 2881 corresponds to the number of minutes
-                                ## from 1/2/2007 00:00:00 and 3/2/2007 00:00:00
+                                ## from 1/2/2007 00:00:00 to 3/2/2007 00:00:00
 
 ## Adding "datetime" column with date/time class
 data$datetime <- as.POSIXct(paste(data$Date,data$Time),
